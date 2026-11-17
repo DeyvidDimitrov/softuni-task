@@ -38,3 +38,9 @@ def compare_to_benford(prices):
     counts = pd.DataFrame({"observed": observed, "expected": expected})
     counts.index.name = "digit"
     return counts, chi2, p
+
+
+def cents(prices):
+    """The cents part of each price as a whole number, for example 2.99 -> 99."""
+    # Round first, because 0.29 * 100 is 28.999999999999996
+    return np.round(pd.Series(prices, dtype=float) * 100).astype(int) % 100
