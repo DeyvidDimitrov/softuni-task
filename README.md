@@ -13,32 +13,6 @@ about how stores set prices.
   with columns `price` and `store`
 - `requirements.txt` - the Python packages
 
-## How to run
-
-You need Python 3. The project was tested with Python 3.12, numpy 2.5.5,
-pandas 3.1.1, matplotlib 3.11.2 and scipy 1.18.1.
-
-```
-git clone https://github.com/DeyvidDimitrov/softuni-task.git
-cd softuni-task
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt jupyter
-jupyter notebook notebook.ipynb
-```
-
-On Windows, activate the environment with `.venv\Scripts\activate` instead.
-
-Start Jupyter from the project folder, because the notebook reads
-`data/prices.csv` and imports `src/benford.py` from there. Then run all
-cells from top to bottom.
-
-To run the whole notebook from the terminal and save the outputs:
-
-```
-jupyter nbconvert --to notebook --execute --inplace notebook.ipynb
-```
-
 ## Functions in src/benford.py
 
 - `clean_prices(df)` - drops missing, non-positive and one-cent prices
