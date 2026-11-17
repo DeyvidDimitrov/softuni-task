@@ -40,6 +40,12 @@ def compare_to_benford(prices):
     return counts, chi2, p
 
 
+def mad(counts):
+    """Mean absolute gap between observed and expected shares (Nigrini's MAD)."""
+    shares = counts / counts.sum()
+    return (shares["observed"] - shares["expected"]).abs().mean()
+
+
 def cents(prices):
     """The cents part of each price as a whole number, for example 2.99 -> 99."""
     # Round first, because 0.29 * 100 is 28.999999999999996
