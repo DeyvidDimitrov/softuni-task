@@ -1,6 +1,13 @@
 """Helper functions for testing Benford's law on retail prices."""
 
+import numpy as np
 import pandas as pd
+
+
+def expected_probs():
+    """Benford probability P(d) = log10(1 + 1/d) for each first digit d = 1..9."""
+    digits = np.arange(1, 10)
+    return pd.Series(np.log10(1 + 1 / digits), index=digits)
 
 
 def clean_prices(df):
